@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mira Gold Product Details - Premium luxury cosmetics.">
+    <title>Product Details | Mira Gold</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-main">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/images/logo.svg" alt="Mira Gold Logo" class="logo breathing-logo">
+                </a>
+                <p class="brand-identity">Essence of Natural Beauty</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="index.html#categories">Collections</a></li>
+                    <li><a href="index.html#about-us">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Details Section -->
+    <section id="product-details-section">
+        <div class="container">
+            <a href="products.html" class="back-link" data-aos="fade-right">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to Products
+            </a>
+
+            <div class="product-details-wrapper" id="product-details">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer data-aos="fade-up">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>About Mira Gold</h3>
+                <p>Mira Gold is a premium skincare brand inspired by Italian innovation and dermo-cosmetic expertise.
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p class="contact-address">Via Padua 11 - Piazza del Libano - Poligono di tiro - Charles de Gaulle</p>
+                <a href="tel:01095533755" class="contact-phone">01095 533755</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="https://www.instagram.com/miragold_ksa" target="_blank">Instagram</a>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 Mira Gold. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/products-data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out-back',
+                once: true,
+                offset: 100
+            });
+
+            const detailsContainer = document.getElementById('product-details');
+
+            // Get product ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = parseInt(urlParams.get('id'));
+
+            // Find product
+            const product = products.find(p => p.id === productId);
+
+            if (product) {
+                document.title = `${product.title} | Mira Gold`;
+
+                detailsContainer.innerHTML = `
+                    <div class="product-detail-image" data-aos="fade-right">
+                        <img src="${product.image}" alt="${product.title}">
+                    </div>
+                    <div class="product-detail-content" data-aos="fade-left" data-aos-delay="200">
+                        <span class="product-detail-category">${categoryNames[product.category]}</span>
+                        <h1 class="product-detail-title">${product.title}</h1>
+                        <p class="product-detail-subtitle">${product.subtitle}</p>
+                        
+                        <div class="product-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Volume</span>
+                                <span class="meta-value">${product.volume}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Type</span>
+                                <span class="meta-value">${product.type}</span>
+                            </div>
+                        </div>
+
+                        <div class="product-description">
+                            <h3>Description</h3>
+                            <p>${product.description}</p>
+                        </div>
+
+
+
+                        <div class="product-how-to-use">
+                            <h3>How to Use</h3>
+                            <p>${product.howToUse}</p>
+                        </div>
+
+
+
+                        <a href="products.html" class="back-to-products-btn">
+                            Browse All Products
+                        </a>
+                    </div>
+                `;
+            } else {
+                detailsContainer.innerHTML = `
+                    <div class="product-not-found" data-aos="fade-up">
+                        <h2>Product Not Found</h2>
+                        <p>Sorry, we couldn't find the product you're looking for.</p>
+                        <a href="products.html" class="back-to-products-btn">Browse All Products</a>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+
+</html>

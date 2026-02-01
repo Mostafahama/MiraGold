@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mira Gold Products - Premium luxury skincare and haircare collection.">
+    <title>Products | Mira Gold</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Products | Mira Gold">
+    <meta property="og:description" content="Explore our luxury skincare and haircare collection.">
+    <meta property="og:image" content="assets/images/mira-gold-art-work-1.jpg">
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-main">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/images/logo.svg" alt="Mira Gold Logo" class="logo breathing-logo">
+                </a>
+                <p class="brand-identity">Essence of Natural Beauty</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="index.html#categories">Collections</a></li>
+                    <li><a href="index.html#about-us">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <section id="products-section">
+        <div class="container">
+            <h1 data-aos="fade-up">Our Products</h1>
+
+            <!-- Category Filters -->
+            <div class="filters-container" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active" data-category="all">All</button>
+                <!-- Filters will be generated dynamically -->
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-catalog-grid" id="products-grid">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer data-aos="fade-up">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>About Mira Gold</h3>
+                <p>Mira Gold is a premium skincare brand inspired by Italian innovation and dermo-cosmetic expertise.
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p class="contact-address">Via Padua 11 - Piazza del Libano - Poligono di tiro - Charles de Gaulle</p>
+                <a href="tel:01095533755" class="contact-phone">01095 533755</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="https://www.instagram.com/miragold_ksa" target="_blank">Instagram</a>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 Mira Gold. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/products-data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out-back',
+                once: true,
+                offset: 100
+            });
+
+            const filtersContainer = document.querySelector('.filters-container');
+            const productsGrid = document.getElementById('products-grid');
+            let activeCategory = 'all';
+
+            // Generate filter buttons
+            function generateFilters() {
+                categories.forEach(cat => {
+                    const btn = document.createElement('button');
+                    btn.className = 'filter-btn';
+                    btn.dataset.category = cat;
+                    btn.textContent = categoryNames[cat];
+                    filtersContainer.appendChild(btn);
+                });
+
+                // Add click handlers
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        setCategory(this.dataset.category);
+                    });
+                });
+            }
+
+            // Set active category and update UI
+            function setCategory(category) {
+                activeCategory = category;
+
+                // Update buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    if (btn.dataset.category === category) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                // Handle "All" button
+                const allBtn = document.querySelector('.filter-btn[data-category="all"]');
+                if (category === 'all') {
+                    allBtn.classList.add('active');
+                } else {
+                    allBtn.classList.remove('active');
+                }
+
+                renderProducts();
+            }
+
+            // Check URL for category parameter
+            function checkUrlParams() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const categoryParam = urlParams.get('category');
+
+                if (categoryParam && categories.includes(categoryParam)) {
+                    setCategory(categoryParam);
+                } else {
+                    // Default to 'all'
+                    setCategory('all');
+                }
+            }
+
+            // Render products
+            function renderProducts() {
+                const filtered = activeCategory === 'all'
+                    ? products
+                    : products.filter(p => p.category === activeCategory);
+
+                productsGrid.innerHTML = filtered.map((product, index) => `
+                    <div class="product-catalog-card" data-aos="fade-up" data-aos-delay="${(index % 4) * 100}">
+                        <a href="product-details.html?id=${product.id}" class="product-image-link">
+                            <div class="product-image-wrapper">
+                                <img src="${product.image}" alt="${product.title}" loading="lazy">
+                            </div>
+                        </a>
+                        <div class="product-info">
+                            <span class="product-category">${categoryNames[product.category]}</span>
+                            <h3 class="product-title">${product.title}</h3>
+                            <p class="product-subtitle">${product.subtitle}</p>
+                            <span class="product-volume">${product.volume}</span>
+                            <a href="product-details.html?id=${product.id}" class="view-details-btn">View Details</a>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Re-initialize AOS for new elements
+                AOS.refresh();
+            }
+
+            // Initialize
+            generateFilters();
+            checkUrlParams();
+            // renderProducts(); // Called by checkUrlParams or setCategory
+        });
+    </script>
+</body>
+
+</html>
