@@ -1040,13 +1040,33 @@ footer {
     border-radius: 4px;
 }
 
-/* How to Use Section */
+/* How t.product-description,
+.product-ingredients,
+.product-instructions,
 .product-how-to-use {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
 }
 
-.product-how-to-use h3,
-.product-how-to-use-ar h3 {
+.product-description h3,
+.product-ingredients h3,
+.product-instructions h3,
+.product-how-to-use h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+
+.product-description p,
+.product-ingredients p,
+.product-instructions p,
+.product-how-to-use p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+.product-description h3,
+.product-description-ar h3 {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -1055,8 +1075,8 @@ footer {
     font-family: 'Franie Bold', serif;
 }
 
-.product-how-to-use p,
-.product-how-to-use-ar p {
+.product-description p,
+.product-description-ar p {
     font-size: 1rem;
     line-height: 1.8;
     color: var(--color-text);

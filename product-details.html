@@ -159,14 +159,24 @@
                             <p>${product.description}</p>
                         </div>
 
+                        ${product.activeIngredients ? `
+                        <div class="product-ingredients">
+                            <h3>Active Ingredients</h3>
+                            <p>${product.activeIngredients}</p>
+                        </div>
+                        ` : ''}
 
+                        ${product.instructions ? `
+                        <div class="product-instructions">
+                            <h3>Instructions</h3>
+                            <p>${product.instructions}</p>
+                        </div>
+                        ` : ''}
 
                         <div class="product-how-to-use">
                             <h3>How to Use</h3>
                             <p>${product.howToUse}</p>
                         </div>
-
-
 
                         <a href="products.html" class="back-to-products-btn">
                             Browse All Products
