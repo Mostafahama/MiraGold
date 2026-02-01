@@ -9,10 +9,11 @@
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Products | Mira Gold">
-    <meta property="og:description" content="Explore our luxury skincare and haircare collection.">
-    <meta property="og:image" content="assets/images/mira-gold-art-work-1.jpg">
+    <meta property="og:url" content="https://mostafahama.github.io/MiraGold/products.html">
+    <meta property="og:title" content="Our Products | Mira Gold">
+    <meta property="og:description"
+        content="Explore our premium collection of Anti-Aging, Hair Treatment, Whitening, and Acne Treatment products.">
+    <meta property="og:image" content="https://mostafahama.github.io/MiraGold/assets/images/mira-gold-art-work-1.webp">
 
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -168,8 +169,7 @@
                 productsGrid.innerHTML = filtered.map((product, index) => `
                     <div class="product-catalog-card" data-aos="fade-up" data-aos-delay="${(index % 4) * 100}">
                         <a href="product-details.html?id=${product.id}" class="product-image-link">
-                            <div class="product-image-wrapper">
-                                <img src="${product.image}" alt="${product.title}" loading="lazy">
+                                <img src="${product.image}" alt="${product.title}" loading="lazy" width="300" height="300" onerror="this.src='assets/images/logo.svg'; this.classList.add('fallback');">
                             </div>
                         </a>
                         <div class="product-info">

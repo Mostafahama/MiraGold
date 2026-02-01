@@ -30,14 +30,28 @@ document.addEventListener('DOMContentLoaded', function () {
         delay: 0,
     });
 
-    // Lightbox2 Configuration (Optional, defaults are usually good)
-    lightbox.option({
-        'resizeDuration': 200,
-        'wrapAround': true,
-        'fadeDuration': 300,
-        'imageFadeDuration': 300,
-        'showImageNumberLabel': false // Clean look
-    });
+    // Lightbox2 Configuration
+    if (typeof lightbox !== 'undefined') {
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'fadeDuration': 300,
+            'imageFadeDuration': 300,
+            'showImageNumberLabel': false
+        });
+    }
+
+    // Global Image Error Handler (Fallback)
+    document.addEventListener('error', function (e) {
+        if (e.target.tagName.toLowerCase() === 'img') {
+            const fallback = 'assets/images/logo.svg'; // Use logo as fallback or a dedicated placeholder
+            if (e.target.src !== window.location.origin + '/' + fallback && !e.target.dataset.errorHandled) {
+                e.target.dataset.errorHandled = "true";
+                e.target.src = fallback;
+                e.target.classList.add('image-fallback');
+            }
+        }
+    }, true);
 
     // Smooth Scroll Fallback (for older browsers, though CSS handles most)
     // and for potential future "offset" needs if we add a fixed header.

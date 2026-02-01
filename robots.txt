@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.miragold.com/sitemap.xml <!-- Replace with actual domain -->
+Sitemap: https://mostafahama.github.io/MiraGold/sitemap.xml

@@ -31,6 +31,18 @@
     --transition-standard: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -105,6 +117,9 @@ button {
     cursor: pointer;
     border: none;
     outline: none;
+    min-height: 44px;
+    /* Finger-friendly touch targets */
+    min-width: 44px;
 }
 
 /* =========================================
@@ -185,10 +200,7 @@ section {
     /* Align with Logo */
 }
 
-.main-nav {
-    /* Align with Logo */
-}
-
+/* Main Navigation Container */
 .main-nav ul {
     list-style: none;
     display: flex;

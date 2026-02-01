@@ -4,8 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mira Gold Product Details - Premium luxury cosmetics.">
     <title>Product Details | Mira Gold</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" id="og-title" content="Product Details | Mira Gold">
+    <meta property="og:description" id="og-description" content="Discover premium luxury cosmetics from Mira Gold.">
+    <meta property="og:image" id="og-image" content="assets/images/mira-gold-art-work-1.webp">
+    <meta property="og:url" id="og-url" content="">
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 
     <!-- AOS CSS -->
@@ -106,7 +112,7 @@
 
                 detailsContainer.innerHTML = `
                     <div class="product-detail-image" data-aos="fade-right">
-                        <img src="${product.image}" alt="${product.title}" loading="lazy">
+                        <img src="${product.image}" alt="${product.title}" loading="lazy" width="600" height="600">
                     </div>
                     <div class="product-detail-content" data-aos="fade-left" data-aos-delay="200">
                         <span class="product-detail-category">${categoryNames[product.category]}</span>
@@ -143,6 +149,13 @@
                         </a>
                     </div>
                 `;
+
+                // Dynamic Meta Update
+                document.getElementById('og-title').setAttribute('content', `${product.title} | Mira Gold`);
+                document.getElementById('og-description').setAttribute('content', product.description);
+                document.getElementById('og-image').setAttribute('content', window.location.origin + '/' + product.image);
+                document.getElementById('og-url').setAttribute('content', window.location.href);
+
             } else {
                 detailsContainer.innerHTML = `
                     <div class="product-not-found" data-aos="fade-up">
