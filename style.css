@@ -606,7 +606,6 @@ footer {
    9. RESPONSIVE DESIGN (Media Queries)
    ========================================= */
 
-/* Tablet & Mobile */
 @media (max-width: 1024px) {
     :root {
         --container-padding: 1rem;
@@ -617,12 +616,91 @@ footer {
     }
 }
 
-@media (max-width: 900px) {
+/* Mobile Menu Logic */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 10px;
+    min-height: 44px;
+    min-width: 44px;
+}
 
-    /* Hero becomes 2 columns or stack? Let's stack for mobile-first feel on smaller tablets */
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-text);
+    transition: var(--transition-standard);
+}
+
+@media (max-width: 900px) {
+    .header-main {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem var(--container-padding);
+        gap: 0;
+    }
+
+    .logo {
+        width: 150px;
+        left: 0;
+        margin: 0;
+    }
+
+    .brand-identity {
+        display: none;
+        /* Hide tagline on mobile for space */
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--color-bg);
+        z-index: 1000;
+        transition: 0.5s ease-in-out;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        padding-top: 80px;
+    }
+
+    .main-nav.active {
+        right: 0;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        border-top: none;
+        gap: var(--spacing-md);
+    }
+
+    /* Hero */
     .hero-grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* 2 columns */
+        grid-template-columns: 1fr;
     }
 
     .categories-grid {
@@ -635,33 +713,48 @@ footer {
 }
 
 @media (max-width: 600px) {
-
-    /* Full mobile stack */
     :root {
-        --spacing-lg: 3rem;
-        --spacing-xl: 5rem;
+        --spacing-md: 1.5rem;
+        --spacing-lg: 2rem;
+        --spacing-xl: 3rem;
+    }
+
+    h1,
+    #products-section h1 {
+        font-size: 1.8rem;
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
-    .hero-grid {
-        grid-template-columns: 1fr;
-        /* Stack vertically */
+    .product-detail-title {
+        font-size: 1.6rem;
     }
 
     .categories-grid {
         grid-template-columns: 1fr;
     }
 
-    .products-grid {
+    .products-catalog-grid {
         grid-template-columns: 1fr;
+        /* Single column on very small screens or 2? Let's keep 2 for better browsing if images allow */
     }
 
-    .logo {
-        width: 250px;
-        /* Resize for mobile */
+    .filters-container {
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+        /* Prevents wrapping */
+        gap: 0.8rem;
+    }
+
+    .filter-btn {
+        flex: 0 0 auto;
+        /* Keeps buttons in a single row */
     }
 }
 

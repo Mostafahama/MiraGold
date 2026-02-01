@@ -31,6 +31,11 @@
                 </a>
                 <p class="brand-identity">Essence of Natural Beauty</p>
             </div>
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -92,11 +97,27 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Initialize AOS
             AOS.init({
-                duration: 800,
-                easing: 'ease-out-back',
                 once: true,
                 offset: 100
             });
+
+            // Mobile Menu Toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function () {
+                    mainNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                mainNav.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mainNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    });
+                });
+            }
 
             const detailsContainer = document.getElementById('product-details');
 
