@@ -5,6 +5,20 @@
 
 const products = [
     {
+        id: 1,
+        category: "anti-aging",
+        title: "ETERNA SERUM",
+        subtitle: "Advanced Anti-Aging Serum",
+        volume: "50ml",
+        type: "BOTTLE",
+        description: "Reduces wrinkles, stimulates collagen production, and gives the skin a firm and youthful appearance.",
+        activeIngredients: "Niacinamide, Sodium Ascorbyl Phosphate (Vitamin C), Sodium Hyaluronate, Panthenol (Vitamin B5)",
+        instructions: "Apply 2-3 drops to clean face. Massage gently until absorbed. Use morning and night.",
+        howToUse: "Apply to clean skin morning and evening. Use regularly for best anti-aging results.",
+        image: "assets/images/products/Eterna Serum 50ML.webp",
+        colorCode: "#2C3E50"
+    },
+    {
         id: 3,
         category: "anti-aging",
         title: "LUMA PEEL CREAM",
