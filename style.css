@@ -564,6 +564,22 @@ footer {
     margin-top: 0.25rem;
 }
 
+.contact-email {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    transition: var(--transition-standard);
+}
+
+.contact-email:hover {
+    opacity: 0.8;
+}
+
+.contact-address i {
+    margin-right: 0.3rem;
+    color: var(--color-logo-gold);
+}
+
 .copyright {
     grid-column: 1 / -1;
     /* Span full width */
