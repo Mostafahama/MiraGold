@@ -173,8 +173,8 @@ section {
     }
 
     50% {
-        transform: scale(1.02);
-        opacity: 0.95;
+        transform: scale(1.05);
+        opacity: 0.9;
     }
 
     100% {
