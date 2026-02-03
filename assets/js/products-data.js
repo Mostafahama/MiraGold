@@ -132,7 +132,7 @@ const products = [
     },
     {
         id: 11,
-        category: "acne-treatment",
+        category: "cleanser",
         title: "CLARIO CLEANSER",
         subtitle: "Facial Cleanser for Oily Skin",
         volume: "150ml",
