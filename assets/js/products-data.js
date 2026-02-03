@@ -6,7 +6,7 @@
 const products = [
     {
         id: 1,
-        category: "anti-aging",
+        category: ["anti-aging"],
         title: "ETERNA SERUM",
         subtitle: "Advanced Anti-Aging Serum",
         volume: "50ml",
@@ -20,7 +20,7 @@ const products = [
     },
     {
         id: 5,
-        category: "anti-aging",
+        category: ["anti-aging"],
         title: "REVIVE CREAM",
         subtitle: "Anti-Aging Cream",
         volume: "50ml",
@@ -34,7 +34,7 @@ const products = [
     },
     {
         id: 4,
-        category: "anti-aging",
+        category: ["anti-aging"],
         title: "RENOURA EYE CREAM",
         subtitle: "Eye Contour Cream",
         volume: "14ml",
@@ -48,7 +48,7 @@ const products = [
     },
     {
         id: 3,
-        category: "anti-aging",
+        category: ["anti-aging"],
         title: "LUMA PEEL CREAM",
         subtitle: "Cold Peel Home Care",
         volume: "50ml",
@@ -62,7 +62,7 @@ const products = [
     },
     {
         id: 6,
-        category: "hair-treatment",
+        category: ["hair-treatment"],
         title: "CAPILUXE VIALS",
         subtitle: "Hair Treatment Vials",
         volume: "5 Vials",
@@ -76,7 +76,7 @@ const products = [
     },
     {
         id: 7,
-        category: "acne-treatment",
+        category: ["acne-treatment"],
         title: "CLARIO SOLUTION",
         subtitle: "Acne Peel Solution",
         volume: "30ml",
@@ -90,7 +90,7 @@ const products = [
     },
     {
         id: 8,
-        category: "whitening",
+        category: ["whitening"],
         title: "PEARLISSE CREAM",
         subtitle: "Whitening Body Sensitive Areas",
         volume: "100ml",
@@ -104,7 +104,7 @@ const products = [
     },
     {
         id: 9,
-        category: "whitening",
+        category: ["whitening"],
         title: "GLOWIN CREAM",
         subtitle: "Whitening Face Cream",
         volume: "100ml",
@@ -118,7 +118,7 @@ const products = [
     },
     {
         id: 10,
-        category: "cleanser",
+        category: ["cleanser"],
         title: "HYDRASOFT CLEANSER",
         subtitle: "Facial Cleanser for Dry Skin",
         volume: "150ml",
@@ -132,7 +132,7 @@ const products = [
     },
     {
         id: 11,
-        category: "cleanser",
+        category: ["cleanser", "acne-treatment"],
         title: "CLARIO CLEANSER",
         subtitle: "Facial Cleanser for Oily Skin",
         volume: "150ml",
@@ -146,7 +146,7 @@ const products = [
     },
     {
         id: 12,
-        category: "cleanser",
+        category: ["cleanser"],
         title: "NEUTRA CLEANSER",
         subtitle: "Facial Cleanser for Normal Skin",
         volume: "150ml",
@@ -160,7 +160,7 @@ const products = [
     },
     {
         id: 14,
-        category: "hair-treatment",
+        category: ["hair-treatment"],
         title: "LASHIVA",
         subtitle: "Eye Lashes and Brows Gel",
         volume: "10ml",
@@ -174,7 +174,7 @@ const products = [
     },
     {
         id: 15,
-        category: "hair-treatment",
+        category: ["hair-treatment"],
         title: "PUREWASH SHAMPOO",
         subtitle: "Zero Sulfate Shampoo",
         volume: "400ml",
@@ -188,7 +188,7 @@ const products = [
     },
     {
         id: 16,
-        category: "hair-treatment",
+        category: ["hair-treatment"],
         title: "TRIVIDA SERUM",
         subtitle: "Hair Repair Serum",
         volume: "100ml",
@@ -203,7 +203,7 @@ const products = [
 ];
 
 // Get unique categories
-const categories = [...new Set(products.map(p => p.category))];
+const categories = [...new Set(products.flatMap(p => p.category))];
 
 // Category display names
 const categoryNames = {

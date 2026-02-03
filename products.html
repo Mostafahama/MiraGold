@@ -197,7 +197,7 @@
             function renderProducts() {
                 const filtered = activeCategory === 'all'
                     ? products
-                    : products.filter(p => p.category === activeCategory);
+                    : products.filter(p => p.category.includes(activeCategory));
 
                 productsGrid.innerHTML = filtered.map((product, index) => `
                     <div class="product-catalog-card" data-aos="fade-up" data-aos-delay="${(index % 4) * 100}">
@@ -207,7 +207,7 @@
                             </div>
                         </a>
                         <div class="product-info">
-                            <span class="product-category">${categoryNames[product.category]}</span>
+                            <span class="product-category">${categoryNames[product.category[0]]}</span>
                             <h3 class="product-title">${product.title}</h3>
                             <p class="product-subtitle">${product.subtitle}</p>
                             <span class="product-volume">${product.volume}</span>
