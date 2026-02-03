@@ -484,7 +484,7 @@ section {
 footer {
     background-color: var(--color-footer);
     color: var(--color-white);
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-md) 0;
     text-align: left;
     /* Desktop default */
 }
@@ -493,7 +493,7 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr 0.5fr;
     /* 3 Columns: Brand (wide), Contact (wide), Links (narrow) */
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
     align-items: start;
 }
 
@@ -591,7 +591,7 @@ footer {
     /* Span full width */
     font-size: 0.8rem;
     opacity: 0.5;
-    margin-top: var(--spacing-lg);
+    margin-top: var(--spacing-md);
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: var(--spacing-sm);
