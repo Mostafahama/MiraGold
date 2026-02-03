@@ -19,18 +19,18 @@ const products = [
         colorCode: "#2C3E50"
     },
     {
-        id: 3,
+        id: 5,
         category: "anti-aging",
-        title: "LUMA PEEL CREAM",
-        subtitle: "Cold Peel Home Care",
+        title: "REVIVE CREAM",
+        subtitle: "Anti-Aging Cream",
         volume: "50ml",
-        type: "BOTTLE",
-        description: "Gently exfoliates, evens skin tone, and helps remove spots and pigmentation for a clearer complexion.",
-        activeIngredients: "Glycolic Acid, Salicylic Acid, Niacinamide, Hyaluronic Acid, Lactic Acid",
-        instructions: "Use nightly on clean skin. Leave 20-30 mins, rinse, and moisturize.",
-        howToUse: "Apply thin layer to dry skin. Rinse after 20-30 mins. Use 1-2 times weekly.",
-        image: "assets/images/products/Luma Peel cream -50ml.webp",
-        colorCode: "#40E0D0"
+        type: "Jar",
+        description: "Nourishes the skin, improves elasticity, and restores radiance and fullness for a youthful look.",
+        activeIngredients: "Aloe Barbadensis Leaf Juice (جل الصبار), Jojoba Oil / Squalane, Shea Butter, Matrixyl Palmitoyl Pentapeptide-4, Sodium Hyaluronate",
+        instructions: "Apply to face and neck morning and night. Use sunscreen during the day.",
+        howToUse: "Massage softly into clean skin until fully absorbed.",
+        image: "assets/images/products/Revive cream.webp",
+        colorCode: "#FFD700"
     },
     {
         id: 4,
@@ -47,18 +47,18 @@ const products = [
         colorCode: "#4682B4"
     },
     {
-        id: 5,
+        id: 3,
         category: "anti-aging",
-        title: "REVIVE CREAM",
-        subtitle: "Anti-Aging Cream",
+        title: "LUMA PEEL CREAM",
+        subtitle: "Cold Peel Home Care",
         volume: "50ml",
-        type: "Jar",
-        description: "Nourishes the skin, improves elasticity, and restores radiance and fullness for a youthful look.",
-        activeIngredients: "Aloe Barbadensis Leaf Juice (جل الصبار), Jojoba Oil / Squalane, Shea Butter, Matrixyl Palmitoyl Pentapeptide-4, Sodium Hyaluronate",
-        instructions: "Apply to face and neck morning and night. Use sunscreen during the day.",
-        howToUse: "Massage softly into clean skin until fully absorbed.",
-        image: "assets/images/products/Revive cream.webp",
-        colorCode: "#FFD700"
+        type: "BOTTLE",
+        description: "Gently exfoliates, evens skin tone, and helps remove spots and pigmentation for a clearer complexion.",
+        activeIngredients: "Glycolic Acid, Salicylic Acid, Niacinamide, Hyaluronic Acid, Lactic Acid",
+        instructions: "Use nightly on clean skin. Leave 20-30 mins, rinse, and moisturize.",
+        howToUse: "Apply thin layer to dry skin. Rinse after 20-30 mins. Use 1-2 times weekly.",
+        image: "assets/images/products/Luma Peel cream -50ml.webp",
+        colorCode: "#40E0D0"
     },
     {
         id: 6,
@@ -132,7 +132,7 @@ const products = [
     },
     {
         id: 11,
-        category: "cleanser",
+        category: "acne-treatment",
         title: "CLARIO CLEANSER",
         subtitle: "Facial Cleanser for Oily Skin",
         volume: "150ml",
