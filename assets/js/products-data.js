@@ -97,7 +97,7 @@ const products = [
         type: "TUBE",
         description: "Lightens sensitive areas, evens skin tone, and deeply moisturizes for a smoother complexion.",
         activeIngredients: "Niacinamide, Alpha-Arbutin, Kojic Dipalmitate, Glycerin",
-        instructions: "Apply daily to clean body skin (elbows, knees). Use sunscreen on exposed areas.",
+        instructions: "For best results, apply daily to clean skin, focusing on sensitive and darker areas such as the underarms and intimate area.",
         howToUse: "Massage twice daily into dark or sensitive areas until absorbed.",
         image: "assets/images/products/PEARLISSE Cream.webp",
         colorCode: "#F8F8FF"
