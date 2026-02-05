@@ -413,27 +413,16 @@ section {
 /* =========================================
    7. PRODUCTS SECTION
    ========================================= */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-md);
-    row-gap: var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
-    /* Added extra visible space */
+.filter-btn {
+    min-height: 44px;
+    padding: 0.7rem 1.8rem;
 }
 
-#products {
-    padding-bottom: 15rem;
-    /* Significantly increased space before footer */
-}
-
-.product-card {
+.product-catalog-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /* group: hover; removed */
-    /* For potential interactions */
 }
 
 .product-image-placeholder {

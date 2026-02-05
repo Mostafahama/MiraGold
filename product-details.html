@@ -143,7 +143,7 @@
 
                 detailsContainer.innerHTML = `
                     <div class="product-detail-image" data-aos="fade-right">
-                        <img src="${product.image}" alt="${product.title}" loading="lazy" width="600" height="600">
+                        <img src="${product.image}" alt="${product.title}" fetchpriority="high" width="600" height="600">
                     </div>
                     <div class="product-detail-content" data-aos="fade-left" data-aos-delay="200">
                         <span class="product-detail-category">${categoryNames[product.category[0]]}</span>
